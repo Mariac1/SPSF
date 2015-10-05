@@ -1,0 +1,10 @@
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="superponystrikeforce.remember.WeatheryFragment"
+    tools:ignore="MergeRootFrame"
+    android:background="#FF0099CC"
+    android:name="superponystrikeforce.remember.WeatheryFragment"
+    tools:layout="@layout/fragment_weathery" />

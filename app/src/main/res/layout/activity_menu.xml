@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#000000">
+
+    <Button
+        android:layout_width="192sp"
+        android:layout_height="180sp"
+        android:id="@+id/Calendar"
+        android:text="@string/Calendar"
+        android:background="#18B100"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:textSize="25sp" />
+
+    <Button
+        android:layout_width="192sp"
+        android:layout_height="180sp"
+        android:id="@+id/Diary"
+        android:text="@string/Diary"
+        android:background="#122892"
+        android:layout_alignTop="@+id/Calendar"
+        android:layout_alignParentEnd="true"
+        android:textSize="25sp" />
+
+
+    <Button
+        android:layout_width="192sp"
+        android:layout_height="180sp"
+        android:id="@+id/Reminder"
+        android:text="@string/Reminder"
+        android:background="#C9D400"
+        android:layout_below="@+id/Calendar"
+        android:layout_alignParentStart="true"
+        android:textSize="25sp" />
+
+    <Button
+        android:layout_width="192sp"
+        android:layout_height="180sp"
+        android:id="@+id/Memo"
+        android:text="@string/Memo"
+        android:background="#D68300"
+        android:layout_below="@+id/Diary"
+        android:layout_alignParentEnd="true"
+        android:textSize="25sp" />
+
+    <Button
+        android:layout_width="192sp"
+        android:layout_height="180sp"
+        android:id="@+id/Weathery"
+        android:text="@string/Weather"
+        android:background="#AA0064"
+        android:layout_below="@+id/Reminder"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:textSize="25sp" />
+
+</RelativeLayout>
