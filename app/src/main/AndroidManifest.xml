@@ -11,7 +11,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MenuActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,14 +21,17 @@
         </activity>
         <activity
             android:name=".CalendarView"
-            android:label="@string/title_activity_calendar" />
+            android:label="@string/title_activity_calendar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Diary"
-            android:label="@string/title_activity_diary" >
+            android:label="@string/title_activity_diary"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".Weathery"
-            android:label="@string/title_activity_weathery" >
+            android:label="@string/title_activity_weathery"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 
