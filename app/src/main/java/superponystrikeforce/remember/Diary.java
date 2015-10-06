@@ -38,7 +38,7 @@ public class Diary extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary);
 
-        int nr = NrOfFiles();
+        //int nr = NrOfFiles();
 
         CD = (TextView) findViewById(R.id.textViewDate);
         Calendar calendar = Calendar.getInstance();
@@ -48,74 +48,20 @@ public class Diary extends AppCompatActivity {
         CurrentDate = format.format(calendar.getTime());
         editText = (EditText) findViewById(R.id.editText1);
 
-        String currentFile = Integer.toString(nr) + "DiaryStorage.txt";
+        String currentFile = "DiaryStorage.txt";
 
         readMessage(currentFile);
-    }
-
-    public int NrOfFiles(){
-        String fileName = "NrOfDiaryFiles.txt";
-        File file = new File(fileName);
-
-        if (file.exists()){
-            String message = "0";
-            FileInputStream fileInputStream = null;
-            try {
-                fileInputStream = openFileInput(fileName);
-                InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
-                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                StringBuffer stringBuffer = new StringBuffer();
-                while ((message = bufferedReader.readLine()) != null)
-                {
-                    stringBuffer.append(message).append("\n");
-                }
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return Integer.parseInt(message);
-        }
-        return 0;
     }
 
     public void writeToFile(View view){
         String Message2 = editText.getText().toString();
         String fileName = "DiaryStorage.txt";
-        String fileName2 = "NrOfDiaryFiles.txt";
         try {
-            String message;
-            //get nr of the NrOfDiaryFiles.txt
-            FileInputStream fileInputStream = openFileInput(fileName2);
-            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            StringBuffer stringBuffer = new StringBuffer();
-            while ((message = bufferedReader.readLine()) != null)
-            {
-                stringBuffer.append(message);
-            }
-
-            //add nr.
-            FileOutputStream fileOutputStream2 = openFileOutput(fileName2, MODE_PRIVATE);
-            int a = Integer.parseInt(stringBuffer.toString());
-            fileName = Integer.toString(a) + fileName; //add nr to file name
-
-            Calendar calendar = Calendar.getInstance();
-            SimpleDateFormat format = new SimpleDateFormat("dd-MMMM-yyyy");
-            if (!prevDate.equals(format.format(calendar.getTime()))){
-                a++;
-            }
-            fileName = Integer.toString(a) + "DiaryStorage.txt";
-            fileOutputStream2.write(a);
-            fileOutputStream2.close();
-
-            //write to the new diary file
+           //write to the new diary file
             FileOutputStream fileOutputStream = openFileOutput(fileName, MODE_PRIVATE);
             fileOutputStream.write(Message2.getBytes());
             fileOutputStream.close();
             Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_LONG).show();
-
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -146,7 +92,7 @@ public class Diary extends AppCompatActivity {
     }
 
     public void PreviousDiaryEntry(View view){
-        currentWorkingFile = NrOfFiles();
+        /*currentWorkingFile = NrOfFiles();
         previousWorkingFile = currentWorkingFile - 1;
         nextWorkingFile = currentWorkingFile + 1;
 
@@ -161,11 +107,11 @@ public class Diary extends AppCompatActivity {
             editText.setText(readMessage(Integer.toString(NrOfFiles()) + "DiaryStorage.txt"));
         }
         else
-            previousWorkingFile = currentWorkingFile;
+            previousWorkingFile = currentWorkingFile;*/
     }
 
     public void NextDiaryEntry(View view){
-        currentWorkingFile = NrOfFiles();
+      /*  currentWorkingFile = NrOfFiles();
         previousWorkingFile = currentWorkingFile - 1;
         nextWorkingFile = currentWorkingFile + 1;
 
@@ -180,7 +126,7 @@ public class Diary extends AppCompatActivity {
         if (currentWorkingFile != 0)
             previousWorkingFile -= 1;
         else
-            previousWorkingFile = currentWorkingFile;
+            previousWorkingFile = currentWorkingFile;*/
     }
 
     @Override

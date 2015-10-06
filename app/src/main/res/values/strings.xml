@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Remember</string>
 
-    //Mainmenu
+    //Main menu
     <string name="Calendar">Calendar</string>
     <string name="action_settings">Settings</string>
     <string name="Diary">Diary</string>
@@ -10,8 +10,11 @@
     <string name="Weather">Weather</string>
 
     //Calendar
-    <string name="title_activity_calendar">Calendar</string>
+    <string name="title_activity_calender">CalenderActivity</string>
     <string name="CalendarDate">Calendar</string>
+    <string name="listView">listView</string>
+    <string name="addEvent">Add Event"</string>
+    <string name="pop">PopUpWindow"</string>
 
     //Diary
     <string name="title_activity_diary">Diary</string>
@@ -35,5 +38,7 @@
     <string name="weather_drizzle">&#xf01c;</string>
     <string name="place_not_found">Sorry, no weather data found.</string>
     <string name="CityMissing">Go to settings in top right corner and change city.</string>
+    <string name="title_activity_my_calendar">MyCalendarActivity</string>
 
+    <string name="hello_world">Hello world!</string>
 </resources>

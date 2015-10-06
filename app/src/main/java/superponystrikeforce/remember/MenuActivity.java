@@ -4,6 +4,7 @@ package superponystrikeforce.remember;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,7 +29,16 @@ public class MenuActivity extends AppCompatActivity {
         Calendar_BTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), CalendarView.class);
+                Intent intent = new Intent(v.getContext(), CalenderActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button Reminder_BTN = (Button) findViewById(R.id.Reminder);
+        Reminder_BTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), ListViewActivity.class);
                 startActivity(intent);
             }
         });

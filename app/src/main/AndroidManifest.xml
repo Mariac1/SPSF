@@ -12,26 +12,42 @@
         <activity
             android:name=".MenuActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".CalendarView"
-            android:label="@string/title_activity_calendar"
-            android:screenOrientation="portrait"/>
-        <activity
             android:name=".Diary"
             android:label="@string/title_activity_diary"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".Weathery"
             android:label="@string/title_activity_weathery"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".CalenderActivity"
+            android:label="@string/title_activity_calender"
             android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ListViewActivity"
+            android:label="@string/listView"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".Popup"
+            android:label="@string/pop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.CalenderAdd"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
