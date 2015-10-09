@@ -1,6 +1,8 @@
 package superponystrikeforce.remember;
 
 
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,9 +13,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 
 public class MenuActivity extends AppCompatActivity {
@@ -23,19 +32,11 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        createDiaryNrFile();
+//      createDiaryNrFile();
+//      createCalendar();
 
         Button Calendar_BTN = (Button) findViewById(R.id.Calendar);
         Calendar_BTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), CalenderActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        Button Reminder_BTN = (Button) findViewById(R.id.Reminder);
-        Reminder_BTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), ListViewActivity.class);
@@ -43,6 +44,15 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+       /* Button Reminder_BTN = (Button) findViewById(R.id.Reminder);
+        Reminder_BTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), ListViewActivity.class);
+                startActivity(intent);
+            }
+        });
+*/
         Button Diary_BTN = (Button) findViewById(R.id.Diary);
         Diary_BTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +70,36 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void createCalendar() {
+        /*String fileName = "CalendarList.txt";
+        File file = new File(fileName);
+        if (!file.exists()){
+            String string = "";
+            FileOutputStream outputStream;
+
+            try {
+                outputStream = openFileOutput(fileName, Context.MODE_PRIVATE);
+                outputStream.write(string.getBytes());
+                outputStream.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }*/
+       /* String fileName = "CalendarList.txt";
+        String Empty = "";
+        try {
+            //write to the new diary file
+            FileOutputStream fileOutputStream = openFileOutput(fileName, MODE_PRIVATE);
+            fileOutputStream.write(Empty.getBytes());
+            fileOutputStream.close();
+            Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_LONG).show();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
     }
 
     public void createDiaryNrFile(){

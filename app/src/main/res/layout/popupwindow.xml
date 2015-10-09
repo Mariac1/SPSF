@@ -50,7 +50,8 @@
         android:textColorHint="#ff6a00"
         android:textSize="30sp"
         android:layout_below="@+id/textView4"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:maxLength="50"/>
 
     <Button
         android:layout_width="wrap_content"
