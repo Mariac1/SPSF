@@ -14,7 +14,7 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/tv_Date"
+            android:id="@+id/tv_AlarmDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="3dp"
@@ -24,7 +24,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tv_Time"
+            android:id="@+id/tv_AlarmTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

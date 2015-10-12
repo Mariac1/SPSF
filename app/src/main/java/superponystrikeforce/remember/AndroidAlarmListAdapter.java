@@ -1,7 +1,5 @@
 package superponystrikeforce.remember;
 
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,17 +7,16 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import superponystrikeforce.remember.R;
-import superponystrikeforce.remember.CalendarCollection;
+import java.util.ArrayList;
 
-public class AndroidListAdapter extends ArrayAdapter<CalendarCollection> {
+public class AndroidAlarmListAdapter extends ArrayAdapter<AlarmCollection> {
 
     private final Context context;
-    private final ArrayList<CalendarCollection> values;
+    private final ArrayList<AlarmCollection> values;
     private ViewHolder viewHolder;
     private final int resourceId;
 
-    public AndroidListAdapter(Context context, int resourceId, ArrayList<CalendarCollection> values) {
+    public AndroidAlarmListAdapter(Context context, int resourceId, ArrayList<AlarmCollection> values) {
         super(context, resourceId, values);
         this.context = context;
         this.values = values;
@@ -34,20 +31,20 @@ public class AndroidListAdapter extends ArrayAdapter<CalendarCollection> {
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(resourceId, parent, false);
             viewHolder = new ViewHolder();
-            viewHolder.tv_date = (TextView) convertView.findViewById(R.id.tv_date);
-            viewHolder.tv_event = (TextView) convertView.findViewById(R.id.tv_event);
+            viewHolder.tv_AlarmDate = (TextView) convertView.findViewById(R.id.tv_AlarmDate);
+            viewHolder.tv_AlarmTime = (TextView) convertView.findViewById(R.id.tv_AlarmTime);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        CalendarCollection list_obj = values.get(position);
-        viewHolder.tv_date.setText(list_obj.date);
-        viewHolder.tv_event.setText(list_obj.event_message);
+        AlarmCollection list_obj = values.get(position);
+        viewHolder.tv_AlarmDate.setText(list_obj.AlarmDate);
+        viewHolder.tv_AlarmTime.setText(list_obj.AlarmTime);
         return convertView;
     }
 
     public class ViewHolder {
-        TextView tv_event;
-        TextView tv_date;
+        TextView tv_AlarmDate;
+        TextView tv_AlarmTime;
     }
 }

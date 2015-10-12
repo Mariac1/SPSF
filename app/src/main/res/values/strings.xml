@@ -6,7 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="Diary">Diary</string>
     <string name="Reminder">Reminder</string>
-    <string name="Memo">Memo</string>
+    <string name="Memo">Alarm</string>
     <string name="Weather">Weather</string>
 
     //Calendar
