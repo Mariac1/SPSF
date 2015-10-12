@@ -13,7 +13,7 @@
     <string name="title_activity_calender">CalenderActivity</string>
     <string name="CalendarDate">Calendar</string>
     <string name="listView">listView</string>
-    <string name="addEvent">Add Event"</string>
+    <string name="addEvent">Add Event</string>
     <string name="pop">PopUpWindow"</string>
 
     //Diary
@@ -39,6 +39,12 @@
     <string name="place_not_found">Sorry, no weather data found.</string>
     <string name="CityMissing">Go to settings in top right corner and change city.</string>
     <string name="title_activity_my_calendar">MyCalendarActivity</string>
+    <string name="title_activity_reminder">Reminder</string>
 
     <string name="hello_world">Hello world!</string>
+    //Alarm
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_alarm_main">Remember</string>
+    <string name="title_activity_alarm_receiver">Remember</string>
+
 </resources>

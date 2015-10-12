@@ -15,6 +15,7 @@
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -31,23 +32,40 @@
         <activity
             android:name=".CalenderActivity"
             android:label="@string/title_activity_calender"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".ListViewActivity"
             android:label="@string/listView"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".Popup"
             android:label="@string/pop"
+            android:noHistory="true"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.CalenderAdd"
-            android:noHistory="true" >
+            android:theme="@style/AppTheme.CalenderAdd" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".AlarmMainActivity"
+            android:label="@string/title_activity_alarm_main" >
+        </activity>
+        <activity
+            android:name=".AlarmReceiverActivity"
+            android:label="@string/title_activity_alarm_receiver" >
+        </activity>
+        <activity
+            android:name=".AlarmPopup"
+            android:label="@string/title_activity_alarm_main" >
+        </activity>
+        <activity
+            android:name=".ListViewLoader"
+            android:label="@string/title_activity_alarm_main" >
         </activity>
     </application>
 

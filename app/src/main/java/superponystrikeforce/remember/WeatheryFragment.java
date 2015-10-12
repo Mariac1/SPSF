@@ -13,8 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONObject;
-
-
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -62,13 +60,7 @@ public class WeatheryFragment extends Fragment {
             public void run(){
                 final JSONObject json = RemoteFetch.getJSON(getActivity(), city);
                 if(json == null){
-                    handler.post(new Runnable(){
-                        public void run(){
-                            Toast.makeText(getActivity(),
-                                    getActivity().getString(R.string.place_not_found),
-                                    Toast.LENGTH_LONG).show();
-                        }
-                    });
+
                 } else {
                     handler.post(new Runnable(){
                         public void run(){

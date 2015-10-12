@@ -8,7 +8,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.StringTokenizer;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -23,14 +22,14 @@ public class ListViewActivity extends Activity implements OnClickListener {
     private ListView lv_android;
     private AndroidListAdapter list_adapter;
     private Button btn_calender;
-    //File file = new File("CalendarList.txt");
+    File file = new File("CalendarList.txt");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_view);
-        //getList();
+        getList();
         getWidget();
         Button b = (Button) findViewById(R.id.btn_addEvent);
         b.setOnClickListener(new OnClickListener() {
@@ -41,8 +40,65 @@ public class ListViewActivity extends Activity implements OnClickListener {
         });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == 2) {
+            Bundle bundle = data.getExtras();
+            String EventDate = bundle.getString("date");
+            String EventName = bundle.getString("name");
+            CalendarCollection.date_collection_arr.add(new CalendarCollection(EventDate, EventName));
+            int size = CalendarCollection.date_collection_arr.size();
+            writeToCalendar(EventDate, EventName);
+            for (int k = 0; k < size; k++) {
+                CalendarCollection.date_collection_arr.remove(CalendarCollection.date_collection_arr.size() - 1);
+            }
+            getList();
+            getWidget();
+        }
+    }
+
+    private void writeToCalendar(String SDate, String SName) {
+        String fileName = "CalendarList.txt";
+        String string = SDate + "\n" + SName + "\n";
+        FileOutputStream fileOutputStream = null;
+
+
+        String message;
+        StringBuffer stringBuffer = new StringBuffer();
+        FileInputStream fileInputStream = null;
+        try {
+            fileInputStream = openFileInput(fileName);
+            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+            while ((message = bufferedReader.readLine()) != null) {
+                stringBuffer.append(message).append("\n");
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+        e.printStackTrace();
+        }
+
+        string = stringBuffer.toString() + string;
+
+        try {
+            fileOutputStream = openFileOutput(fileName, MODE_PRIVATE);
+            fileOutputStream.write(string.getBytes());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fileOutputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     private void getList() {
-        /*if (file.exists()) {
             String fileName = "CalendarList.txt";
             try {
                 String message;
@@ -55,46 +111,28 @@ public class ListViewActivity extends Activity implements OnClickListener {
                 }
 
                 //String hantering
-                StringTokenizer tokens = new StringTokenizer(stringBuffer.toString(), "\n");
+                String[] splitter;
                 ArrayList<String> name = new ArrayList<>();
                 ArrayList<String> date = new ArrayList<>();
-                while (tokens.nextToken() != "") {
-                    date.add(tokens.nextToken());
-                    name.add(tokens.nextToken());
+                splitter = stringBuffer.toString().split("\n");
+                for (int k = 0; k < splitter.length; k++)
+                {
+                    date.add(splitter[k]);
+                    k++;
+                    name.add(splitter[k]);
                 }
-                System.out.println(date);
-                System.out.println(name);
-
+                int size = CalendarCollection.date_collection_arr.size();
+                for (int k = 0; k < size; k++) {
+                    CalendarCollection.date_collection_arr.remove(CalendarCollection.date_collection_arr.size() - 1);
+                }
+                while ((!date.isEmpty()) && (!name.isEmpty())) {
+                    CalendarCollection.date_collection_arr.add(new CalendarCollection(date.remove(date.size()-1), name.remove(name.size()-1)));
+                }
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }else{
-            String fileName = "CalendarList.txt";
-            try {
-                //write to the new diary file
-                FileOutputStream fileOutputStream = openFileOutput(fileName, MODE_PRIVATE);
-                fileOutputStream.write(" ".getBytes());
-                fileOutputStream.close();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }*/
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == 2) {
-            Bundle bundle = data.getExtras();
-            String EventDate = bundle.getString("date");
-            String EventName = bundle.getString("name");
-            CalendarCollection.date_collection_arr.add(new CalendarCollection(EventDate, EventName));
-            //writeToCalendar(EventDate, EventName);
-            getWidget();
-        }
     }
 
 
@@ -103,23 +141,8 @@ public class ListViewActivity extends Activity implements OnClickListener {
         btn_calender.setOnClickListener(this);
 
         lv_android = (ListView) findViewById(R.id.lv_android);
-        lv_android.setAdapter(list_adapter);
         list_adapter = new AndroidListAdapter(ListViewActivity.this, R.layout.list_item, CalendarCollection.date_collection_arr);
-    }
-
-    private void writeToCalendar(String Date, String Name) {
-        String fileName = "CalendarList.txt";
-        String string = Date + "\n" + Name;
-        FileOutputStream fileOutputStream;
-        try {
-            fileOutputStream = openFileOutput(fileName, MODE_PRIVATE);
-            fileOutputStream.write(string.getBytes());
-            fileOutputStream.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        lv_android.setAdapter(list_adapter);
     }
 
     @Override
@@ -135,4 +158,5 @@ public class ListViewActivity extends Activity implements OnClickListener {
         }
 
     }
+
 }

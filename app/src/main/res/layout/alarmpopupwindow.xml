@@ -8,55 +8,55 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Date:"
-        android:id="@+id/textView3"
+        android:id="@+id/AlarmText"
         android:layout_gravity="center_vertical"
         android:background="#00000000"
         android:textColor="#ff6a00"
         android:textSize="30sp"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/addDate"
+        android:layout_alignStart="@+id/addAlarmText"
         android:layout_marginTop="47dp" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/addDate"
+        android:id="@+id/addAlarmText"
         android:textColor="#ff6a00"
         android:hint="Insert Date Here"
         android:textColorHighlight="#ff6a00"
         android:textSize="30sp"
-        android:layout_below="@+id/textView3"
-        android:layout_alignStart="@+id/textView4" />
+        android:layout_below="@+id/AlarmText"
+        android:layout_alignStart="@+id/TimeText" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Name:"
-        android:id="@+id/textView4"
+        android:text="Time:"
+        android:id="@+id/TimeText"
         android:background="#00ffffff"
         android:textColor="#ff6a00"
         android:textSize="30sp"
-        android:layout_below="@+id/addDate"
-        android:layout_alignStart="@+id/NameText"
+        android:layout_below="@+id/addAlarmText"
+        android:layout_alignStart="@+id/AddTimeText"
         android:layout_marginTop="51dp" />
 
     <EditText
         android:layout_width="330sp"
         android:layout_height="wrap_content"
-        android:id="@+id/NameText"
+        android:id="@+id/AddTimeText"
         android:textColor="#ff6a00"
         android:hint="Insert Text here"
         android:textColorHint="#ff6a00"
         android:textSize="30sp"
-        android:layout_below="@+id/textView4"
+        android:layout_below="@+id/TimeText"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add"
-        android:id="@+id/addEvent"
+        android:id="@+id/addAlarmEvent"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="47dp" />

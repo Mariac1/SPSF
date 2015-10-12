@@ -8,10 +8,11 @@ public class CalendarCollection {
 
 
     public static ArrayList<CalendarCollection> date_collection_arr = new ArrayList<>();
-    public CalendarCollection(String date,String event_message){
 
-        this.date=date;
-        this.event_message=event_message;
+    public CalendarCollection(String date, String event_message) {
+
+        this.date = date;
+        this.event_message = event_message;
 
     }
 

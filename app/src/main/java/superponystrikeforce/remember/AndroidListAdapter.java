@@ -1,23 +1,25 @@
 package superponystrikeforce.remember;
 
 import java.util.ArrayList;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
 import superponystrikeforce.remember.R;
 import superponystrikeforce.remember.CalendarCollection;
 
-public class AndroidListAdapter extends ArrayAdapter<CalendarCollection>{
+public class AndroidListAdapter extends ArrayAdapter<CalendarCollection> {
 
     private final Context context;
     private final ArrayList<CalendarCollection> values;
     private ViewHolder viewHolder;
     private final int resourceId;
 
-    public AndroidListAdapter(Context context, int resourceId,ArrayList<CalendarCollection> values) {
+    public AndroidListAdapter(Context context, int resourceId, ArrayList<CalendarCollection> values) {
         super(context, resourceId, values);
         this.context = context;
         this.values = values;
@@ -36,11 +38,10 @@ public class AndroidListAdapter extends ArrayAdapter<CalendarCollection>{
             viewHolder.tv_date = (TextView) convertView.findViewById(R.id.tv_date);
             viewHolder.tv_event = (TextView) convertView.findViewById(R.id.tv_event);
             convertView.setTag(viewHolder);
-        }else
-        {
+        } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        CalendarCollection list_obj=values.get(position);
+        CalendarCollection list_obj = values.get(position);
         viewHolder.tv_date.setText(list_obj.date);
         viewHolder.tv_event.setText(list_obj.event_message);
         return convertView;

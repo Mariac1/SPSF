@@ -19,4 +19,6 @@
     <color name="lightgreen">#336666</color>
     <color name="orrange">#e33d1b</color>
     <color name="darkorrange">#cc2303</color>
+    <color name="red">#ffee0000</color>
+    <color name="ltgrey">#ffe0e0e0</color>
 </resources>
